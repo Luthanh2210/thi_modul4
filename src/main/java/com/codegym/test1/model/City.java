@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class City {
@@ -14,8 +15,10 @@ public class City {
     private String name;
     @ManyToOne
     private Country country;
+    @Min(value = 0, message = "min 0 ")
     @Max(value = 500, message = "max 500")
-    private Double area;
+    @NotNull
+    private double area;
     @Min(value = 100, message = "min 100")
     private Long population;
     private double GDP;
@@ -24,7 +27,7 @@ public class City {
     public City() {
     }
 
-    public City(Long id, @NotEmpty(message = "please input city name") String name, Country country, @Min(value = 500, message = "area is very small") Double area, @Min(value = 100, message = "population is small") Long population, double GDP, String description) {
+    public City(Long id, @NotEmpty(message = "please input city name") String name, Country country, @Min(value = 500, message = "area is very small") double area, @Min(value = 100, message = "population is small") Long population, double GDP, String description) {
         this.id = id;
         this.name = name;
         this.country = country;
@@ -58,7 +61,7 @@ public class City {
         this.country = country;
     }
 
-    public Double getArea() {
+    public double getArea() {
         return area;
     }
 

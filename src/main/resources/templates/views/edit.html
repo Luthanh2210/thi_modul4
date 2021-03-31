@@ -138,7 +138,7 @@
                                 </tr>
                                 <tr>
                                     <td>Area</td>
-                                    <td><input type="text" th:field="*{area}"/></td>
+                                    <td><input type="number" th:field="*{area}"/></td>
                                     <td th:if="${#fields.hasErrors('area')}" th:errors="*{area}">Area Error</td>
 
                                 </tr>
@@ -151,13 +151,13 @@
                                 </tr>
                                 <tr>
                                     <td>Population</td>
-                                    <td><input type="text" th:field="*{population}"/></td>
+                                    <td><input type="number" th:field="*{population}"/></td>
                                     <td th:if="${#fields.hasErrors('population')}" th:errors="*{population}">Population Error</td>
 
                                 </tr>
                                 <tr>
                                     <td>GDP</td>
-                                    <td><input type="text" th:field="*{GDP}"/></td>
+                                    <td><input type="number" th:field="*{GDP}"/></td>
 
                                 </tr>
                                 <tr>
