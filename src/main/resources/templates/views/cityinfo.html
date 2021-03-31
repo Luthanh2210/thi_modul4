@@ -91,10 +91,6 @@
                                                     href="/city" aria-expanded="false"><i
                                 class="ti-pencil"></i><span class="hide-menu">City</span></a>
                         </li>
-                        <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                                    href="/" aria-expanded="false"><i
-                                class="ti-pencil"></i><span class="hide-menu">Country</span></a>
-                        </li>
                     </ul>
                 </nav>
             </div>
@@ -115,7 +111,6 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/city">List City</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Library</li>
                         </ol>
                     </nav>
                 </div>
@@ -136,8 +131,9 @@
                         <h2>GDP: <a th:text="${city.get.getGDP()}"></a></h2>
                         <h2>Description: <a th:text="${city.get.getDescription()}"></a></h2>
                     </div>
-                    <a th:href="@{/city/edit/__${city.get().getId()}__}">Update</a>
-                    <a th:href="@{/city/delete/__${city.get().getId()}__}">Delete</a>
+                    <a class="btn btn-outline-primary" th:href="@{/city/edit/__${city.get().getId()}__}">Update</a>
+
+                    <a class="btn btn-danger" th:href="@{/city/delete/__${city.get().getId()}__}">Delete</a>
                 </div>
             </div>
         </div>

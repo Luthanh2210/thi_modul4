@@ -47,7 +47,7 @@ public class CityController {
     }
     @GetMapping("/city/{id}")
     public ModelAndView showListCity(@PathVariable Long id){
-        return new ModelAndView("/templates/views/cityinfo", "city", cityService.findById(id));
+        return new ModelAndView("views/cityinfo", "city", cityService.findById(id));
     }
     @GetMapping("/city/add")
     public ModelAndView createForm(){

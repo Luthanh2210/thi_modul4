@@ -1,6 +1,7 @@
 package com.codegym.test1.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
@@ -9,11 +10,11 @@ public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty(message = "lỗi")
+    @NotEmpty(message = "do not empty")
     private String name;
     @ManyToOne
     private Country country;
-    @Min(value = 500, message = "max 500")
+    @Max(value = 500, message = "max 500")
     private Double area;
     @Min(value = 100, message = "min 100")
     private Long population;
