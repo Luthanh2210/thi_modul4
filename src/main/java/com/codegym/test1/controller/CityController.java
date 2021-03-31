@@ -34,7 +34,7 @@ public class CityController {
         return new ModelAndView("/views/index");
     }
     @GetMapping("/city")
-    public ModelAndView showListCity(@PageableDefault(size = 1) Pageable pageable, @RequestParam("search") Optional<String> s){
+    public ModelAndView showListCity(@PageableDefault(size = 2) Pageable pageable, @RequestParam("search") Optional<String> s){
         Page<City> cities;
         if (s.isPresent()) {
             cities = cityService.findAllByName(pageable, s.get());
@@ -75,7 +75,7 @@ public class CityController {
     }
 
     @PostMapping("/city/edit")
-    public ModelAndView editCustomer(@ModelAttribute("customer") City city) {
+    public ModelAndView editCountry(@Validated @ModelAttribute("country") City city) {
         cityService.save(city);
         ModelAndView modelAndView = new ModelAndView("/views/edit");
         modelAndView.addObject("city", city);
