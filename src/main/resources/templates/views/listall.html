@@ -110,9 +110,9 @@
                 <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a th:href="@{city/add}"><button class="fas fa-plus" type="button"></button>Add a city</a></li>
-                            <br>
-                            <li class="breadcrumb-item" th:each="item : ${cities}"><a th:href="@{/city/delete/__${item.id}__}"><button class="fas fa-minus" type="button"></button></a>Delete a city</li>
+                            <li class="breadcrumb-item"><a th:href="@{city/add}">
+                                <button class="fas fa-plus" type="button"></button>
+                                <b>Add a city</b></a></li>
                         </ol>
                     </nav>
                 </div>
@@ -147,7 +147,8 @@
                                 <td><span th:text="${item.getId()}"></span></td>
                                 <td><a th:href="@{/city/__${item.id}__}" th:text="${item.getName()}"> </a></td>
                                 <td th:text="${item.getCountry().getName()}"></td>
-                                <td><a class="btn btn-outline-primary" th:href="@{/city/edit/__${item.id}__}">edit</a></td>
+                                <td><a class="btn btn-outline-primary" th:href="@{/city/edit/__${item.id}__}">edit</a>
+                                </td>
                                 <td><a class="btn btn-danger" th:href="@{/city/delete/__${item.id}__}">delete</a></td>
                             </tr>
                             </tbody>
