@@ -75,11 +75,13 @@ public class CityController {
     }
 
     @PostMapping("/city/edit")
-    public ModelAndView editCountry(@Validated @ModelAttribute("country") City city) {
-        cityService.save(city);
+    public ModelAndView editCountry(@Validated @ModelAttribute("country") City city, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView("/views/edit");
-        modelAndView.addObject("city", city);
-        modelAndView.addObject("message", "update OK");
+        if (!bindingResult.hasFieldErrors()) {
+            cityService.save(city);
+            modelAndView.addObject("city", city);
+            modelAndView.addObject("message", "update OK");
+        }
         return modelAndView;
     }
     @GetMapping("/city/delete/{id}")
