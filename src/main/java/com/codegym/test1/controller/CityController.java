@@ -75,7 +75,7 @@ public class CityController {
     }
 
     @PostMapping("/city/edit")
-    public ModelAndView editCountry(@Validated @ModelAttribute("country") City city, BindingResult bindingResult) {
+    public ModelAndView editCity(@Validated @ModelAttribute("city") City city, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView("/views/edit");
         if (!bindingResult.hasFieldErrors()) {
             cityService.save(city);
